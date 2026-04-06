@@ -722,7 +722,7 @@ svg {
 <meta property="og:description" content="Elegância natural para dias inesquecíveis">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://raw.githubusercontent.com/noconvescomdavi/mareva/refs/heads/main/mareva_logo.png">
-<meta property="og:url" content="https://mareva-rio.vercel.app/">
+<meta property="og:url" content="file:///C:/Users/leal1/Downloads/index.html">
 
 <meta property="twitter:card" content="summary">
 <meta property="twitter:title" content="Mareva — Beachwear">
@@ -826,7 +826,9 @@ svg {
   </div>
   <div id="items"></div>
   <p>Total: R$ <span id="total">0</span></p>
-  <a href="checkout.js" class="buy-btn">Finalizar</a>
+  <div class="buy-btn" onclick="finalizarCompra()">
+  Finalizar compra
+</div>
 </div>
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -993,7 +995,35 @@ document.querySelectorAll("a").forEach(link => {
         window.location = this.href;
       }, 300);
     }
+	async function finalizarCompra() {
+  if (cart.length === 0) {
+    alert("Seu carrinho está vazio");
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(cart)
+    });
+
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Erro ao iniciar pagamento");
+    }
+
+  } catch (err) {
+    alert("Erro na conexão");
+  }
+}
   });
+});
 </script>
 </body>
 </html>
