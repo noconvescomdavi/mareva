@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<title>Mareva </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bege: #f7f3ef;
+  --areia: #e8dccf;
+  --marrom: #8c6a4a;
+  --verde: #5e7d6a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bege);
+  color: #333;
+  padding-top: 80px;
+  transition: opacity 0.3s ease;
+  user-select: none;
+  caret-color: transparent;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-family: 'Belleza', sans-serif;
+  font-size: 24px;
+  letter-spacing: 5px;
+  color: #55bfcc;
+  transition: 0.3s;
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+/* MENU PRINCIPAL */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  color: var(--verde);
+}
+
+/* CARRINHO */
+.cart-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.buy-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--verde);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  background: #4b6555;
+}
+
+/* =========================
+   PRODUTOS E GRID
+========================= */
+.section {
+  padding: 80px 40px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 30px;
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 755px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card-info {
+  padding: 15px 5px;
+}
+
+.card-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.price {
+  color: var(--marrom);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   STORY
+========================= */
+.story {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.story img {
+  width: 100%;
+  max-width: 500px;
+}
+
+.story-text {
+  max-width: 500px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #fff;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 10px;
+  }
+
+  .menu {
+    margin-top: 10px;
+    gap: 15px;
+  }
+
+  .menu a {
+    font-size: 14px;
+  }
+
+  .hero {
+    height: 80vh;
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card img {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .menu {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .menu a {
+    margin-left: 15px;
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+}
+
+/* =========================
+   MENU LATERAL (HAMBURGUER)
+========================= */
+.menu-toggle {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: black;
+  left: 0;
+  transition: 0.3s;
+}
+
+.hamburger {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+.close-icon {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+#sidemenu-drawer:checked + .menu-toggle .hamburger {
+  background: transparent;
+}
+
+#sidemenu-drawer:checked + .menu-toggle .hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+#sidemenu-drawer:checked + .menu-toggle .hamburger::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+#sidemenu-drawer:checked + .menu-toggle .close-icon {
+  opacity: 1;
+}
+
+/* MENU LATERAL */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95); /* Transparência leve */
+  padding: 100px 30px;
+  transform: translateX(-100%);
+  transition: 0.4s ease;
+  z-index: 1500;
+  box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+  border-top-right-radius: 15px;    /* Bordas arredondadas */
+  border-bottom-right-radius: 15px;
+}
+
+/* LINKS */
+.side-menu a {
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.side-menu a:hover {
+  color: var(--verde);
+}
+
+/* ABRIR MENU */
+#sidemenu-drawer:checked ~ .side-menu {
+  transform: translateX(0);
+}
+/* =========================
+   CURSOR E INTERAÇÃO
+========================= */
+* {
+  cursor: default !important;
+}
+
+a, button, .buy-btn, .card img, .cart-icon, .prev, .next, .remove-btn, .menu-toggle, .menu-toggle svg, svg {
+  cursor: pointer !important;
+}
+
+input, textarea {
+  user-select: text;
+  cursor: text;
+}
+
+
+</style>
+<header>
+  <!-- Menu Lateral (Hambúrguer) -->
+  <input type="checkbox" id="sidemenu-drawer">
+  <label for="sidemenu-drawer" class="menu-toggle">
+    <span class="hamburger"></span>
+    <svg stroke-width="1" class="close-icon">
+      <path d="M6 6L18 18M18 6L6 18" stroke="black"/>
+    </svg>
+  </label>
+
+  <div class="side-menu">
+    <a href="#">Vestidos Longos</a>
+    <a href="#">Vestidos Curtos</a>
+    <a href="#">Macacão</a>
+    <a href="#">Macaquinho</a>
+    <a href="#">Acessórios</a>
+    <a href="#">Chapéus</a>
+    <a href="#">Bolsas</a>
+  </div>
+
+  <!-- Logo à esquerda -->
+  <div class="logo">MAREVA</div>
+
+  <!-- Menu principal -->
+  <nav class="menu">
+    <a href="#colecao">Coleção</a>
+    <a href="#historia">Sobre</a>
+    <a href="https://instagram.com/mareva.rio" target="_blank" class="insta-link">
+      <svg width="20" height="20" fill="#333" viewBox="0 0 24 24">
+        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 
+        5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 
+        5a5 5 0 110 10 5 5 0 010-10zm6.5-.9a1.1 
+        1.1 0 110 2.2 1.1 1.1 0 010-2.2zM12 
+        9a3 3 0 100 6 3 3 0 000-6z"/>
+      </svg>
+    </a>
+  </nav>
+
+  <!-- Carrinho à direita -->
+  <div class="cart-icon" onclick="openCart()">🛒 <span id="count">0</span></div><div class="cart-popup" id="cart-popup">
+  <!-- Conteúdo será preenchido dinamicamente via JS -->
+</div>
+</header>
+</section>
+
+<section class="section" id="colecao">
+  <h2>Coleção Verão</h2>
+  <div class="products">
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/noconvescomdavi/mareva/refs/heads/main/vestido_arara.jpg" onclick="openGallery([
+        'https://raw.githubusercontent.com/noconvescomdavi/mareva/refs/heads/main/vestido_arara.jpg',
+        'https://raw.githubusercontent.com/noconvescomdavi/mareva/refs/heads/main/vestido02.jpg'
+      ], 0)">
+      <div class="card-info">
+        <h3>Vestido Tropical</h3>
+        <p class="price">R$ 179.90</p>
+        <div class="buy-btn" onclick="addToCartWithFeedback(this,'Vestido Tropical',179.90)">Adicionar ao carrinho</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&q=80" onclick="openLightbox(this.src)">
+      <div class="card-info">
+        <h3>Vestido Praiano</h3>
+        <p class="price">R$ 189.90</p>
+        <div class="buy-btn" onclick="addToCartWithFeedback(this,'Vestido Praiano',189.90)">Adicionar ao carrinho</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&q=80" onclick="openLightbox(this.src)">
+      <div class="card-info">
+        <h3>Vestido Brisa Tropical</h3>
+        <p class="price">R$ 189.90</p>
+        <div class="buy-btn" onclick="addToCartWithFeedback(this,'Vestido Brisa Tropical',189.90)">Adicionar ao carrinho</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section story" id="historia">
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+  <div class="story-text">
+    <h2>Nossa Essência</h2>
+    <p>A Mareva nasce do encontro entre o mar, o sol e a liberdade. Cada peça é pensada para mulheres que querem se sentir leves, elegantes e conectadas com a natureza.</p>
+  </div>
+</section>
+<footer>
+  © 2026 Mareva — Todos os direitos reservados
+</footer>
+<!-- CARRINHO -->
+<div id="cart">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h3>Carrinho</h3>
+    <span onclick="closeCart()" style="cursor:pointer; font-size:20px;">✕</span>
+  </div>
+  <div id="items"></div>
+  <p>Total: R$ <span id="total">0</span></p>
+  <div class="buy-btn" onclick="finalizarCompra()">Finalizar compra</div>
+</div>
+
+<!-- LIGHTBOX & GALLERY -->
+<div id="lightbox" onclick="closeLightbox()"><img id="lightbox-img"></div>
+<div id="gallery" onclick="closeGallery(event)">
+  <span class="close" onclick="closeGallery(event)">✕</span>
+  <img id="gallery-img">
+  <div class="nav prev" onclick="prevImage(event)">‹</div>
+  <div class="nav next" onclick="nextImage(event)">›</div>
+  <div id="thumbs"></div>
+</div>
+<script>
+// ============================
+// CARRINHO
+// ============================
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function saveCart(){ localStorage.setItem("cart",JSON.stringify(cart)); updateCart(); }
+function updateCart(){
+  let totalItens = cart.reduce((sum,i)=>sum+i.qtd,0);
+  document.getElementById("count").innerText = totalItens;
+  let html="",total=0;
+  cart.forEach((item,index)=>{
+    total += item.preco*item.qtd;
+    html+=`<div class="cart-item"><p>${item.nome}</p><p>R$ ${item.preco.toFixed(2)}</p>
+      <div class="qtd-control">
+        <button onclick="changeQtd(${index},-1)">-</button>
+        <span>${item.qtd}</span>
+        <button onclick="changeQtd(${index},1)">+</button>
+      </div>
+      <button class="remove-btn" onclick="removeItem(${index})">Remover</button>
+    </div>`;
+  });
+  document.getElementById("items").innerHTML=html;
+  document.getElementById("total").innerText=total.toFixed(2);
+}
+
+function addToCart(nome,preco){
+  const existing=cart.find(i=>i.nome===nome);
+  if(existing){ existing.qtd+=1; } else { cart.push({nome,preco,qtd:1}); }
+  saveCart();
+}
+function addToCartWithFeedback(btn,nome,preco){
+  addToCart(nome,preco);
+  btn.innerText="Adicionado!";
+  setTimeout(()=>btn.innerText="Adicionar ao carrinho",1500);
+}
+function changeQtd(index,change){ cart[index].qtd+=change; if(cart[index].qtd<=0){ cart.splice(index,1); } saveCart(); }
+function removeItem(index){ cart.splice(index,1); saveCart(); }
+function openCart(){ document.getElementById("cart").classList.add("open"); document.getElementById("overlay").classList.add("show"); }
+function closeCart(){ document.getElementById("cart").classList.remove("open"); document.getElementById("overlay").classList.remove("show"); }
+function finalizarCompra(){
+  if(cart.length===0){ alert("Seu carrinho está vazio"); return; }
+  alert("Compra simulada! Total: R$ "+cart.reduce((sum,i)=>sum+i.preco*i.qtd,0).toFixed(2));
+  cart=[]; saveCart();
+}
+updateCart();
+
+// ============================
+// LIGHTBOX & GALLERY
+// ============================
+function openLightbox(src){ document.getElementById("lightbox-img").src=src; document.getElementById("lightbox").classList.add("show"); }
+function closeLightbox(){ document.getElementById("lightbox").classList.remove("show"); }
+
+let galleryImages=[], currentIndex=0;
+function openGallery(images,index){ galleryImages=images; currentIndex=index; document.getElementById("gallery").classList.add("show"); updateGallery(); }
+function updateGallery(){
+  document.getElementById("gallery-img").src=galleryImages[currentIndex];
+  let thumbs="";
+  galleryImages.forEach((img,i)=>{ thumbs+=`<img src="${img}" onclick="setImage(${i})" class="${i===currentIndex?'active':''}">`; });
+  document.getElementById("thumbs").innerHTML=thumbs;
+}
+function setImage(index){ currentIndex=index; updateGallery(); }
+function nextImage(e){ e.stopPropagation(); currentIndex=(currentIndex+1)%galleryImages.length; updateGallery(); }
+function prevImage(e){ e.stopPropagation(); currentIndex=(currentIndex-1+galleryImages.length)%galleryImages.length; updateGallery(); }
+function closeGallery(e){ if(e.target.id==="gallery"){ document.getElementById("gallery").classList.remove("show"); } }
+
+let startX=0;
+document.getElementById("gallery").addEventListener("touchstart",e=>startX=e.touches[0].clientX);
+document.getElementById("gallery").addEventListener("touchend",e=>{
+  let endX=e.changedTouches[0].clientX;
+  if(startX-endX>50) nextImage(e);
+  if(endX-startX>50) prevImage(e);
+});
+
+// ============================
+// FADE-OUT LINKS EXTERNOS
+// ============================
+document.querySelectorAll("a").forEach(link=>{
+  link.addEventListener("click",function(e){
+    if(this.href&&!this.href.includes("#")){ e.preventDefault(); document.body.classList.add("fade-out"); setTimeout(()=>window.location=this.href,300); }
+  });
+});
+
+
+</script>
+</body>
+</html>
